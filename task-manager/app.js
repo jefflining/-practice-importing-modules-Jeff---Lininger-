@@ -1,20 +1,13 @@
 const taskManager = require('./taskManager.js');
 const fileHandler = require('./fileHandler.js');
 const path = require('path');
+fileHandler.loadTasks(`./tasks.json`);
 
-let taskList = ['Work'];
+taskManager.addTask(tasks, 'Walk dog');
+taskManager.addTask(tasks, 'Clean room');
+taskManager.addTask(tasks, 'Do dishes');
+taskManager.listTasks(tasks);
 
-taskManager.addTask(taskList, 'Walk dog');
-taskManager.addTask(taskList, 'Clean room');
-taskManager.addTask(taskList, 'Do dishes');
-taskManager.listTasks(taskList);
+fileHandler.saveTasks('./tasks.json', tasks);
 
-let fileTasks = fileHandler.loadTasks('./tasks.json');
-
-for (let task of fileTasks) {
-    if (task.length > 0  && !taskList.includes(task)) {
-       taskList.push(task);
-    }
-}
-
-console.log(taskList);
+console.log(tasks);

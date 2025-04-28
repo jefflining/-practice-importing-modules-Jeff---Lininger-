@@ -10,7 +10,7 @@ function saveTasks(filePath, tasks){
 function loadTasks(filePath){
     if (fs.existsSync(filePath)) {
         const data = fs.readFileSync(filePath, 'utf-8');
-        return JSON.parse(data);
+        return tasks = JSON.parse(data);
      } else {
         console.log([]);
      }
